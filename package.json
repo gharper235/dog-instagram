@@ -1,0 +1,19 @@
+{
+  "name": "doggie-instagram",
+  "version": "1.0.0",
+  "description": "A place where dog enthusiests can come together to admire and brag about their favorite canine companions.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gharper235/dog-instagram.git"
+  },
+  "author": "Gregory C Harper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gharper235/dog-instagram/issues"
+  },
+  "homepage": "https://github.com/gharper235/dog-instagram#readme"
+}
