@@ -13,9 +13,9 @@ const app = express()
 /* APP CONFIG */
 app.set( 'view engine', 'ejs' );
 
-/* app.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Future of doggie-instagram!')
-  }) */
+  })
 
 /* Middleware */
 
@@ -24,6 +24,6 @@ app.set( 'view engine', 'ejs' );
 
 
 /* ROUTES */
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 
 app.listen( PORT, () => console.log( `listing at port ${PORT} \nhttp://localhost:${PORT}`) );
