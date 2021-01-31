@@ -1,20 +1,21 @@
 /* EXTERNAL MODULES */
 const express = require ('express');
 
-
 /* INTERNAL MODULES */
 // const routes = require('./routes')
 
 /* PORT */
-const PORT = 3500;
+const PORT = 3300;
 
 const app = express()
 
 
 /* APP CONFIG */
-app.get('/', (req, res) => {
+app.set( 'view engine', 'ejs' );
+
+/* app.get('/', (req, res) => {
     res.send('Future of doggie-instagram!')
-  })
+  }) */
 
 /* Middleware */
 
@@ -23,6 +24,6 @@ app.get('/', (req, res) => {
 
 
 /* ROUTES */
-
+app.use('/', indexRouter);
 
 app.listen( PORT, () => console.log( `listing at port ${PORT} \nhttp://localhost:${PORT}`) );
