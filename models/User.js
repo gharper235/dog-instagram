@@ -25,18 +25,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Dog_Paw_Print.png'
   },
-  posts: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'Post'
-  }],
-  following: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'User'
-  }],
-  followers: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'User'
-  }]
+  // posts: [{
+  //   type: mongoose.Types.ObjectId,
+  //   ref: 'Post'
+  // }],
+  // following: [{
+  //   type: mongoose.Types.ObjectId,
+  //   ref: 'User'
+  // }],
+  // followers: [{
+  //   type: mongoose.Types.ObjectId,
+  //   ref: 'User'
+  // }]
 },
 {
   timestamps: true

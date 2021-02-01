@@ -37,9 +37,10 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 // Controllers
-
+const UserCtrl = require('./controllers/user');
 
 /* ROUTES */
+app.post('/user/create', UserCtrl.createUser);
 // app.use('/', indexRouter);
 
 // Start Listening devise
