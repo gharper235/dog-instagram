@@ -46,6 +46,7 @@ app.post('/user/update', (UserCtrl.updateUser));
 app.delete('/user/delete', (UserCtrl.deleteUser));
 app.post('/feed/post', (PostCtrl.newPost));
 app.post('/feed/updatepost', (PostCtrl.updatePost));
+app.delete('/feed/deletepost', (PostCtrl.deletePost));
 // app.use('/', indexRouter);
 
 // Start Listening devise

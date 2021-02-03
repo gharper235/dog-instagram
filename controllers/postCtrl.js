@@ -26,7 +26,15 @@ const updatePost = (req, res) => {
         })
 }
 
+const deletePost = (req, res) => {
+    PostModel.deleteOne({_id: req.body._id})
+    .then(result => {
+        res.json({ success: true, result: result});
+    });
+}
+
   module.exports = {
       newPost,
-      updatePost
+      updatePost,
+      deletePost
   }
