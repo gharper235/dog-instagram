@@ -1,3 +1,4 @@
 module.exports = {
-    User: require('./UserCtrl')
+    User: require('./userCtrl'),
+    Post: require('./postCtrl')
   }

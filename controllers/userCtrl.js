@@ -24,14 +24,10 @@ const updateUser = (req, res) => {
         .then(user => {
             if (!user) res.json({ success: false, result: "User does not exist" });
             res.json(user);
-})
-/*     .then(user => {
-        if (!user) console.log('Update user profile unsuccessful')
-    }) */
-/*     .catch(err => {
-        console.log(err);
-    })
-    console.log(user) */
+        })
+        .catch(err => {
+            res.json({ success: false, result: err });
+        })
 }
 
   module.exports = {

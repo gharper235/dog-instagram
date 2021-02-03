@@ -16,5 +16,5 @@ mongoose.connection.on( 'disconnected', (err) => console.log(err) ); */
 
 module.exports = {
   User: require('./UserModel'),
-  // Post: require('./Post'),
+  Post: require('./PostModel'),
 }

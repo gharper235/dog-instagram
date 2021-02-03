@@ -38,10 +38,12 @@ app.use(express.json());
 
 // Controllers
 const UserCtrl = require('./controllers/userCtrl');
+const PostCtrl = require('./controllers/postCtrl');
 
 /* ROUTES */
 app.post('/user/create', (UserCtrl.createUser));
 app.post('/user/update', (UserCtrl.updateUser));
+app.post('/feed/post', (PostCtrl.newPost));
 // app.use('/', indexRouter);
 
 // Start Listening devise
