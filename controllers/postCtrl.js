@@ -1,5 +1,24 @@
 const PostModel = require('../models/PostModel');
 
+/* const index = ( req, res ) => {
+  
+    db.Post.find({})
+    .populate('user')
+    .sort({ createdAt: -1 })
+    .exec( ( err, posts ) => {
+      if ( err ) return console.log(err)
+  
+      console.log(req.session.currentUser)
+  
+      const context = {
+        posts,
+        currentUser: req.session.currentUser
+      }
+  
+      res.render('feed/feed', context );
+    })
+  } */
+
 const newPost = (req, res) => {
     let post = new PostModel ({
         img: req.body.img,
@@ -34,6 +53,7 @@ const deletePost = (req, res) => {
 }
 
   module.exports = {
+    //   index,
       newPost,
       updatePost,
       deletePost

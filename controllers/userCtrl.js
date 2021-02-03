@@ -38,7 +38,7 @@ const deleteUser = (req, res) => {
 }
 
   module.exports = {
-      createUser,
-      updateUser,
-      deleteUser
+    createUser,
+    updateUser,
+    deleteUser
   }
