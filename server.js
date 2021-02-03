@@ -44,6 +44,7 @@ const PostCtrl = require('./controllers/postCtrl');
 app.post('/user/create', (UserCtrl.createUser));
 app.post('/user/update', (UserCtrl.updateUser));
 app.post('/feed/post', (PostCtrl.newPost));
+app.post('/feed/updatepost', (PostCtrl.updatePost));
 // app.use('/', indexRouter);
 
 // Start Listening devise

@@ -4,15 +4,6 @@ const newPost = (req, res) => {
     let post = new PostModel ({
         img: req.body.img,
         caption: req.body.caption,
-        
-        // user: {
-        //     type: mongoose.Types.ObjectId,
-        //     ref: 'User'
-        // },
-        // likes: [{
-        //     type: mongoose.Types.ObjectId,
-        //     ref: 'User'
-        // }]
     });
 
     post.save()
@@ -24,15 +15,18 @@ const newPost = (req, res) => {
     })
 }
 
-// const updateUser = (req, res) => {
-//     UserModel.updateOne({_id: req.body._id}, req.body)
-//         .then(user => {
-//             if (!user) res.json({ success: false, result: "User does not exist" });
-//             res.json(user);
-// })
-// }
+const updatePost = (req, res) => {
+    PostModel.updateOne({_id: req.body._id}, req.body)
+        .then(post => {
+            if (!post) res.json({ success: false, result: "Post does not exist" });
+            res.json(post);
+        })
+        .catch(err => {
+            res.json({ success: false, result: err });
+        })
+}
 
   module.exports = {
-      newPost
-    //   updateUser
+      newPost,
+      updatePost
   }
