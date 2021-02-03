@@ -1,7 +1,7 @@
-const User = require('../models/index');
+const UserModel = require('../models/UserModel');
 
 const createUser = (req, res) => {
-    let user = new User({
+    let user = new UserModel ({
         username: req.body.username,
         email: req.body.email,
         firstName: req.body.firstName,
@@ -20,10 +20,14 @@ const createUser = (req, res) => {
 }
 
 const updateUser = (req, res) => {
-    User.update({_id: req.body._id}, req.body)
-    .then(user => {
+    UserModel.updateOne({_id: req.body._id}, req.body)
+        .then(user => {
+            if (!user) res.json({ success: false, result: "User does not exist" });
+            res.json(user);
+})
+/*     .then(user => {
         if (!user) console.log('Update user profile unsuccessful')
-    })
+    }) */
 /*     .catch(err => {
         console.log(err);
     })
