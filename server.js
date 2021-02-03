@@ -43,6 +43,7 @@ const PostCtrl = require('./controllers/postCtrl');
 /* ROUTES */
 app.post('/user/create', (UserCtrl.createUser));
 app.post('/user/update', (UserCtrl.updateUser));
+app.delete('/user/delete', (UserCtrl.deleteUser));
 app.post('/feed/post', (PostCtrl.newPost));
 app.post('/feed/updatepost', (PostCtrl.updatePost));
 // app.use('/', indexRouter);

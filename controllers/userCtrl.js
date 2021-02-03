@@ -30,7 +30,15 @@ const updateUser = (req, res) => {
         })
 }
 
+const deleteUser = (req, res) => {
+    UserModel.deleteOne({_id: req.body._id})
+    .then(result => {
+        res.json({ success: true, result: result});
+    });
+}
+
   module.exports = {
       createUser,
-      updateUser
+      updateUser,
+      deleteUser
   }
