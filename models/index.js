@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 
 const connectionStr = 'mongodb://127.0.0.1:27017/doggie-instagram';
 
@@ -12,9 +12,9 @@ mongoose.connect( connectionStr, {
 .catch( (err) => console.log('MongoDB error', err))
 
 
-mongoose.connection.on( 'disconnected', (err) => console.log(err) );
+mongoose.connection.on( 'disconnected', (err) => console.log(err) ); */
 
 module.exports = {
-  User: require('./User'),
-  Post: require('./Post'),
+  User: require('./UserModel'),
+  Post: require('./PostModel'),
 }
