@@ -1,5 +1,5 @@
 // TODO not working
-/* module.exports = {
-    user: require('./userRt')
-    // post: require('./postRt')
-  } */
+module.exports = {
+    user: require('./user')
+    // post: require('./post')
+  }

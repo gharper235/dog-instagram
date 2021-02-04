@@ -21,7 +21,7 @@ mongoose.connect( connectionStr, {
 mongoose.connection.on( 'disconnected', (err) => console.log(err) );
 
 /* INTERNAL MODULES */
-// const routes = require('./routes')
+const routes = require('./routes')
 
 /* APP CONFIG */
 app.set( 'view engine', 'ejs' );
@@ -37,14 +37,15 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 // Controllers
-const UserCtrl = require('./controllers/userCtrl');
+// I 
+// const UserCtrl = require('./controllers/userCtrl');
 const PostCtrl = require('./controllers/postCtrl');
 
 /* ROUTES */
 // User Routes need to split out
-app.post('/user/create', (UserCtrl.createUser));
-app.post('/user/update', (UserCtrl.updateUser));
-app.delete('/user/delete', (UserCtrl.deleteUser));
+// app.post('/user/create', (UserCtrl.createUser));
+// app.post('/user/update', (UserCtrl.updateUser));
+// app.delete('/user/delete', (UserCtrl.deleteUser));
 
 // Post routes need to be split
 app.post('/feed/post', (PostCtrl.newPost));
@@ -55,7 +56,7 @@ app.delete('/feed/deletepost', (PostCtrl.deletePost));
 // app.use( '/feed', routes.post ) ;
 
 // users routes 
-// app.use('/users', routes.user );
+app.use('/users', routes.user );
 // app.use('/', indexRouter);
 
 // Start Listening devise
