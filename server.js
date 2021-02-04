@@ -36,21 +36,16 @@ app.get('/', (req, res) => {
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
+// user it create a global obj for our app 
+app.use( ( req, res, next)  => {
+  app.locals.user =  req.user;
+  next();
+});
+
 // Controllers
-// I 
-// const UserCtrl = require('./controllers/userCtrl');
-// const PostCtrl = require('./controllers/postCtrl');
+
 
 /* ROUTES */
-// User Routes need to split out
-// app.post('/user/create', (UserCtrl.createUser));
-// app.post('/user/update', (UserCtrl.updateUser));
-// app.delete('/user/delete', (UserCtrl.deleteUser));
-
-// Post routes need to be split
-// app.post('/feed/post', (PostCtrl.newPost));
-// app.post('/feed/updatepost', (PostCtrl.updatePost));
-// app.delete('/feed/deletepost', (PostCtrl.deletePost));
 
 // post routes
 app.use( '/feed', routes.post ) ;
