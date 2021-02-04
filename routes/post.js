@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const PostCtrl = require('../controllers/postCtrl');
+const {post} = require('../controllers');
 
-router.post('/post', PostCtrl.newPost);
-router.put('/updatepost', PostCtrl.updatePost);
-router.delete('/deletepost', PostCtrl.deletePost);
+router.post('/post', post.newPost);
+router.put('/updatepost', post.updatePost);
+router.delete('/deletepost', post.deletePost);
 
 // router.get( '/:postId', ctrls.post.show );
 

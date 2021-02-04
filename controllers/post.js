@@ -1,4 +1,4 @@
-const PostModel = require('../models/PostModel');
+const db = require('../models');
 
 /* const index = ( req, res ) => {
   
@@ -19,8 +19,9 @@ const PostModel = require('../models/PostModel');
     })
   } */
 
+// http://localhost:3300/feed/post
 const newPost = (req, res) => {
-    let post = new PostModel ({
+    let post = new db.Post ({
         img: req.body.img,
         caption: req.body.caption,
     });
@@ -34,8 +35,9 @@ const newPost = (req, res) => {
     })
 }
 
+// http://localhost:3300/feed/updatepost
 const updatePost = (req, res) => {
-    PostModel.updateOne({_id: req.body._id}, req.body)
+    db.Post.updateOne({_id: req.body._id}, req.body)
         .then(post => {
             if (!post) res.json({ success: false, result: "Post does not exist" });
             res.json(post);
@@ -45,8 +47,9 @@ const updatePost = (req, res) => {
         })
 }
 
+// http://localhost:3300/feed/deletepost
 const deletePost = (req, res) => {
-    PostModel.deleteOne({_id: req.body._id})
+    db.Post.deleteOne({_id: req.body._id})
     .then(result => {
         res.json({ success: true, result: result});
     });

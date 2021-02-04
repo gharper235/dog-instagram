@@ -16,6 +16,6 @@ mongoose.connection.on( 'disconnected', (err) => console.log(err) ); */
 
 // TODO not working
 module.exports = {
-  User: require('./User')
-  // Post: require('./PostModel'),
+  User: require('./User'),
+  Post: require('./Post')
 }

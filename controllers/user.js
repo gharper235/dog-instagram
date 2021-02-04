@@ -1,5 +1,6 @@
 const db = require('../models');
 
+// http://localhost:3300/users/create
 const createUser = (req, res) => {
     let user = new db.User ({
         username: req.body.username,
@@ -19,6 +20,7 @@ const createUser = (req, res) => {
     })
 }
 
+// http://localhost:3300/user/update
 const updateUser = (req, res) => {
     db.User.updateOne({_id: req.body._id}, req.body)
         .then(user => {
@@ -30,6 +32,7 @@ const updateUser = (req, res) => {
         })
 }
 
+// http://localhost:3300/users/delete
 const deleteUser = (req, res) => {
     db.User.deleteOne({_id: req.body._id})
     .then(result => {
