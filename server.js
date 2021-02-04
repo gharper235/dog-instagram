@@ -21,7 +21,7 @@ mongoose.connect( connectionStr, {
 mongoose.connection.on( 'disconnected', (err) => console.log(err) );
 
 /* INTERNAL MODULES */
-// const routes = require('./routes')
+const routes = require('./routes')
 
 /* APP CONFIG */
 app.set( 'view engine', 'ejs' );
@@ -36,14 +36,22 @@ app.get('/', (req, res) => {
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
+// user it create a global obj for our app 
+app.use( ( req, res, next)  => {
+  app.locals.user =  req.user;
+  next();
+});
+
 // Controllers
-const UserCtrl = require('./controllers/userCtrl');
-const PostCtrl = require('./controllers/postCtrl');
+
 
 /* ROUTES */
-app.post('/user/create', (UserCtrl.createUser));
-app.post('/user/update', (UserCtrl.updateUser));
-app.post('/feed/post', (PostCtrl.newPost));
+
+// post routes
+app.use( '/feed', routes.post ) ;
+
+// users routes 
+app.use('/users', routes.user );
 // app.use('/', indexRouter);
 
 // Start Listening devise
