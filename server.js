@@ -34,8 +34,7 @@ app.get('/feed', (req, res) => {
   res.render('feed/feed');
   });
 
-// TODO not working
-  app.get('/newpost', (req, res) => {
+app.get('/newpost', (req, res) => {
   res.render('post/new');
   });
 
