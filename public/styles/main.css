@@ -1,0 +1,14 @@
+p {
+  width: 100%;
+  background-color: white;
+  height: 45px;
+  border-bottom: 1px solid #b5afafd2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 0px 2px 0px var(--primary-grey);
+  z-index: 5;
+}

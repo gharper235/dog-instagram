@@ -1,6 +1,6 @@
 const db = require('../models');
 
-/* const index = ( req, res ) => {
+const index = ( req, res ) => {
   
     db.Post.find({})
     .populate('user')
@@ -17,7 +17,7 @@ const db = require('../models');
   
       res.render('feed/feed', context );
     })
-  } */
+  }
 
 // http://localhost:3300/feed/post
 const newPost = (req, res) => {
@@ -33,6 +33,7 @@ const newPost = (req, res) => {
     .catch(err => {
         res.json({ success: false, result: err });
     })
+        res.render('feed/feed');
 }
 
 // http://localhost:3300/feed/updatepost
@@ -56,7 +57,7 @@ const deletePost = (req, res) => {
 }
 
   module.exports = {
-    //   index,
+      index,
       newPost,
       updatePost,
       deletePost
