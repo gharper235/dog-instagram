@@ -12,6 +12,7 @@ const createUser = (req, res) => {
     });
 
     user.save()
+    // below was for debugging using PostMan
     // .then(result => {
     //     res.json({ success: true, result: result });
     // })

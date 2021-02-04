@@ -27,12 +27,13 @@ const newPost = (req, res) => {
     });
 
     post.save()
-    .then(result => {
-        res.json({ success: true, result: result });
-    })
-    .catch(err => {
-        res.json({ success: false, result: err });
-    })
+    // below was for debugging using PostMan
+    // .then(result => {
+    //     res.json({ success: true, result: result });
+    // })
+    // .catch(err => {
+    //     res.json({ success: false, result: err });
+    // })
         res.render('feed/feed');
 }
 

@@ -1,11 +1,23 @@
-<h1>Add post</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<form action="/newpost" method="post">
-  <input type="text" name="img" placeholder="img">
-  <input type="text" name="caption" placeholder="caption">
+  <!-- partial for head -->
+  <%- include('../partials/_head/_head') %>
 
-  <input type="submit" value="add post"><br>
+<body>
+  <h1>Add post</h1>
 
-  <a href="feed/">Cancel new post and go back to feed view</a>
+  <form action="/feed/post" method="post">
+    <input type="text" name="img" placeholder="img">
+    <input type="text" name="caption" placeholder="caption">
+  
+    <input type="submit" value="add post"><br>
+  
+    <a href="feed/">Cancel new post and go back to feed view</a>
+  
+  </form>
 
-</form>
+<!-- <a href="feed/">Will be a login</a> -->
+
+</body>
+</html>
