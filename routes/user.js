@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-//TODO need to get this to point to index.js instead
 const UserCtrl = require('../controllers/userCtrl');
 
 router.post('/create', UserCtrl.createUser);

@@ -1,12 +1,12 @@
-/* const express = require('express');
+const express = require('express');
 const router = express.Router();
 
-const ctrls = require('../controllers');
+const PostCtrl = require('../controllers/postCtrl');
 
-router.post('/feed/post', (PostCtrl.newPost));
-router.post('/feed/updatepost', (PostCtrl.updatePost));
-router.delete('/feed/deletepost', (PostCtrl.deletePost));
+router.post('/post', PostCtrl.newPost);
+router.put('/updatepost', PostCtrl.updatePost);
+router.delete('/deletepost', PostCtrl.deletePost);
 
-router.get( '/:postId', ctrls.post.show );
+// router.get( '/:postId', ctrls.post.show );
 
-module.exports = router; */
+module.exports = router;

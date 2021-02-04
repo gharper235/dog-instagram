@@ -39,7 +39,7 @@ app.use(express.json());
 // Controllers
 // I 
 // const UserCtrl = require('./controllers/userCtrl');
-const PostCtrl = require('./controllers/postCtrl');
+// const PostCtrl = require('./controllers/postCtrl');
 
 /* ROUTES */
 // User Routes need to split out
@@ -48,12 +48,12 @@ const PostCtrl = require('./controllers/postCtrl');
 // app.delete('/user/delete', (UserCtrl.deleteUser));
 
 // Post routes need to be split
-app.post('/feed/post', (PostCtrl.newPost));
-app.post('/feed/updatepost', (PostCtrl.updatePost));
-app.delete('/feed/deletepost', (PostCtrl.deletePost));
+// app.post('/feed/post', (PostCtrl.newPost));
+// app.post('/feed/updatepost', (PostCtrl.updatePost));
+// app.delete('/feed/deletepost', (PostCtrl.deletePost));
 
 // post routes
-// app.use( '/feed', routes.post ) ;
+app.use( '/feed', routes.post ) ;
 
 // users routes 
 app.use('/users', routes.user );
