@@ -19,7 +19,7 @@ const createUser = (req, res) => {
     // .catch(err => {
     //     res.json({ success: false, result: err });
     // })
-    res.redirect('/');
+    res.redirect('/login');
 }
 
 // http://localhost:3300/user/update

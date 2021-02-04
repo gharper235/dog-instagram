@@ -42,6 +42,10 @@ app.get('/newuser', (req, res) => {
   res.render('user/create');
   });
 
+app.get('/login', (req, res) => {
+  res.render('user/login');
+  });
+
 /* Middleware */
 
 // allows us to use json forms for data input
