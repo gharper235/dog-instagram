@@ -8,12 +8,12 @@ const index = ( req, res ) => {
     .exec( ( err, posts ) => {
       if ( err ) return console.log(err)
   
-      console.log(req.session.currentUser)
+      console.log("there was an error displaying posts")
   
-      const context = {
-        posts,
-        currentUser: req.session.currentUser
-      }
+    //   const context = {
+    //     posts,
+    //     // currentUser: req.session.currentUser
+    //   }
   
       res.render('feed/feed', context );
     })
@@ -56,9 +56,22 @@ const deletePost = (req, res) => {
     });
 }
 
+// presentational
+const addPostForm = ( req, res ) => {
+    res.render('post/new');
+  }
+
+const testPosts = ( req, res ) => {
+    db.Post.find({})
+    .then( posts => res.send(posts) )
+    .catch( err => console.log(err) );
+  }
+
   module.exports = {
       index,
       newPost,
       updatePost,
-      deletePost
+      deletePost,
+      addPostForm,
+      testPosts
   }

@@ -38,6 +38,10 @@ app.get('/newpost', (req, res) => {
   res.render('post/new');
   });
 
+app.get('/newuser', (req, res) => {
+  res.render('user/create');
+  });
+
 /* Middleware */
 
 // allows us to use json forms for data input
