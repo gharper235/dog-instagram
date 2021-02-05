@@ -2,12 +2,15 @@
 const express = require ('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
 const app = express();
 
 /* PORT */
 const PORT = 3300;
 
-// Database
+// Database -connect
 const connectionStr = 'mongodb://127.0.0.1:27017/dogigram';
 
 mongoose.connect( connectionStr, {
@@ -78,6 +81,18 @@ app.use( '/feed', routes.post ) ;
 // users routes 
 app.use('/users', routes.user );
 // app.use('/', indexRouter);
+
+// Session
+app.use( session({
+  store: new MongoStore({ url: 'mongodb://127.0.0.1:27017/dogigram' }),
+  secret: 'notasecret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 24 * 7 * 2 // two weeks 
+    }
+  }) 
+);
 
 // Start Listening devise
 app.listen( PORT, () => console.log( `listing at port ${PORT} \nhttp://localhost:${PORT}`) );
