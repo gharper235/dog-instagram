@@ -74,7 +74,6 @@ app.use( ( req, res, next)  => {
 
 
 /* ROUTES */
-
 // post routes
 app.use( '/feed', routes.post ) ;
 
