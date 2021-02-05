@@ -5,22 +5,24 @@
   <%- include('../partials/_head/_head') %>
 
 <body>
-  <h1>Doggie Instagram - New User Registration</h1>
+  <h1 id="center">Doggie Instagram - New User Registration</h1>
 
   <form action="/users/create" method="POST">
+<div id="center">
+      <input type="text" name="firstName" placeholder="first name" required/><br><br>
+      <input type="text" name="lastName" placeholder="last name" required/><br><br>
+      <input type="text" name="username" placeholder="username" required/><br><br>
+      <input type="email" name="email" placeholder="email" required/><br><br>
+      <input type="password" name="password" placeholder="password" required/><br><br>
 
-    <input type="text" name="firstName" placeholder="first name" required/>
-    <input type="text" name="lastName" placeholder="last name" required/>
-    <input type="text" name="username" placeholder="username" required/>
-    <input type="email" name="email" placeholder="email" required/>
-    <input type="password" name="password" placeholder="password" required/>
-
-    <input type="submit" value="register" />
+    <button input type="submit" class="btn btn-outline-success">Register</button>
+  </div>
   </form>
 
   <br>
-  <a href="/">Cancel new user registration</a>
-
+  <div id="center">
+    <button type="button" class="btn btn-outline-danger" onclick="window.location.href='/'">Cancel new user registration</button>
+  </div>
 <!-- <a href="feed/">Will be a login</a> -->
 
 </body>
