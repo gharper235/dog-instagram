@@ -1,6 +1,6 @@
 const db = require('../models');
 
-/* const index = ( req, res ) => {
+const index = ( req, res ) => {
   
     db.Post.find({})
     .populate('user')
@@ -8,16 +8,16 @@ const db = require('../models');
     .exec( ( err, posts ) => {
       if ( err ) return console.log(err)
   
-      console.log(req.session.currentUser)
+      console.log("there was an error displaying posts")
   
-      const context = {
-        posts,
-        currentUser: req.session.currentUser
-      }
+    //   const context = {
+    //     posts,
+    //     // currentUser: req.session.currentUser
+    //   }
   
       res.render('feed/feed', context );
     })
-  } */
+  }
 
 // http://localhost:3300/feed/post
 const newPost = (req, res) => {
@@ -27,12 +27,14 @@ const newPost = (req, res) => {
     });
 
     post.save()
-    .then(result => {
-        res.json({ success: true, result: result });
-    })
-    .catch(err => {
-        res.json({ success: false, result: err });
-    })
+    // below was for debugging using PostMan
+    // .then(result => {
+    //     res.json({ success: true, result: result });
+    // })
+    // .catch(err => {
+    //     res.json({ success: false, result: err });
+    // })
+        res.render('feed/feed');
 }
 
 // http://localhost:3300/feed/updatepost
@@ -55,9 +57,22 @@ const deletePost = (req, res) => {
     });
 }
 
+// presentational
+const addPostForm = ( req, res ) => {
+    res.render('post/new');
+  }
+
+const testPosts = ( req, res ) => {
+    db.Post.find({})
+    .then( posts => res.send(posts) )
+    .catch( err => console.log(err) );
+  }
+
   module.exports = {
-    //   index,
+      index,
       newPost,
       updatePost,
-      deletePost
+      deletePost,
+      addPostForm,
+      testPosts
   }

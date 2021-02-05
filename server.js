@@ -27,14 +27,37 @@ const routes = require('./routes')
 app.set( 'view engine', 'ejs' );
 
 app.get('/', (req, res) => {
-    res.send('Future of doggie-instagram!')
+    res.render('index');
   })
+
+app.get('/feed', (req, res) => {
+  res.render('feed/feed');
+  });
+
+app.get('/newpost', (req, res) => {
+  res.render('post/new');
+  });
+
+app.get('/newuser', (req, res) => {
+  res.render('user/create');
+  });
+
+app.get('/login', (req, res) => {
+  res.render('user/login');
+  });
 
 /* Middleware */
 
 // allows us to use json forms for data input
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+
+// for debugging
+app.use( ( req, res, next ) => {
+  console.log(`${req.method} ${req.originalUrl}`)
+  next();
+})
 
 // user it create a global obj for our app 
 app.use( ( req, res, next)  => {

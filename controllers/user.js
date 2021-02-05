@@ -12,12 +12,14 @@ const createUser = (req, res) => {
     });
 
     user.save()
-    .then(result => {
-        res.json({ success: true, result: result });
-    })
-    .catch(err => {
-        res.json({ success: false, result: err });
-    })
+    // below was for debugging using PostMan
+    // .then(result => {
+    //     res.json({ success: true, result: result });
+    // })
+    // .catch(err => {
+    //     res.json({ success: false, result: err });
+    // })
+    res.redirect('/login');
 }
 
 // http://localhost:3300/user/update
@@ -40,7 +42,7 @@ const deleteUser = (req, res) => {
     });
 }
 
-  module.exports = {
+module.exports = {
     createUser,
     updateUser,
     deleteUser

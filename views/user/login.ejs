@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- partial for head -->
+  <%- include('../partials/_head/_head') %>
+<body>
+  <main>
+
+    <h1 id="center">Doggie Instagram Login</h1>
+
+    <form action="/users/login" method="POST">
+  <div id="center">
+      <input type="email" name="email" placeholder="email"/>
+      <input type="password" name="password" placeholder="password"/><br><br>
+ 
+      <button input type="submit" class="btn btn-outline-success">Login</button>
+    </div>
+    </form>
+<br>
+    <div id="center">
+      <button type="button" class="btn btn-outline-primary" onclick="window.location.href='/'">Cancel login</button>
+    </div>
+  </main>
+  
+</body>
+</html>
