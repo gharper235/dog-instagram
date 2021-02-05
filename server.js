@@ -1,6 +1,7 @@
 /* EXTERNAL MODULES */
 const express = require ('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const app = express();
 
 /* PORT */
@@ -47,10 +48,11 @@ app.get('/login', (req, res) => {
   });
 
 /* Middleware */
-
-// allows us to use json forms for data input
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
+app.use(methodOverride('_method'));
+
+// allows us to use json forms for data input
 app.use(express.json());
 
 // for debugging
