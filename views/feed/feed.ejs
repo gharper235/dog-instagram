@@ -21,7 +21,10 @@
   </div>
   <div class="card-footer">
     <form action="/feed/deletepost?_method=DELETE" method="POST">
-      <input type="submit" class="btn btn-primary" name="_id" value="<%= post._id %>">
+      <input type="submit" class="btn btn-primary" id="postID" name="_id" value="<%= post._id %>" style="display: none;">
+      <label for="postID" class="btn btn-primary">
+        Delete Post
+      </label>
     </form>
   </div>
 </div>
