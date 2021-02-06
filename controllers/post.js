@@ -38,7 +38,7 @@ const updatePost = (req, res) => {
             new: true,
         })
         .then(result => {
-            
+         
             res.redirect('/feed');
             // if (!post) res.json({ success: false, result: "Post does not exist" });
             // res.json(post);
@@ -51,12 +51,7 @@ const updatePost = (req, res) => {
 // http://localhost:3300/feed/deletepost
 const deletePost = (req, res) => {
     console.log(req.body, "This is the deletePost function")
-    db.Post.findByIdAndDelete(
-        req.body._id,
-        {...req.body},
-        {
-            new: true,
-        })
+    db.Post.findByIdAndDelete(req.body._id,  )
     .then(result => {
         res.redirect('/feed')
         //res.json({ success: true, result: result});
