@@ -5,10 +5,14 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+
 const app = express();
 
 /* PORT */
 const PORT = 3300;
+
+// load env
+require('dotenv').config();
 
 // Database -connect
 const connectionStr = 'mongodb://127.0.0.1:27017/dogigram';
@@ -30,26 +34,6 @@ const routes = require('./routes')
 /* APP CONFIG */
 app.set( 'view engine', 'ejs' );
 
-app.get('/', (req, res) => {
-    res.render('index');
-  })
-
-app.get('/feed', (req, res) => {
-  res.render('feed/feed');
-  });
-
-app.get('/newpost', (req, res) => {
-  res.render('post/new');
-  });
-
-app.get('/newuser', (req, res) => {
-  res.render('user/create');
-  });
-
-app.get('/login', (req, res) => {
-  res.render('user/login');
-  });
-
 /* Middleware */
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
@@ -57,6 +41,18 @@ app.use(methodOverride('_method'));
 
 // allows us to use json forms for data input
 app.use(express.json());
+
+// Session
+app.use( session({
+  store: new MongoStore({ url: 'mongodb://127.0.0.1:27017/dogigram' }),
+  secret: 'notasecret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 24 * 7 * 2 // two weeks 
+    }
+  }) 
+);
 
 // for debugging
 app.use( ( req, res, next ) => {
@@ -74,7 +70,6 @@ app.use( ( req, res, next)  => {
 
 
 /* ROUTES */
-
 // post routes
 app.use( '/feed', routes.post ) ;
 
@@ -82,17 +77,25 @@ app.use( '/feed', routes.post ) ;
 app.use('/users', routes.user );
 // app.use('/', indexRouter);
 
-// Session
-app.use( session({
-  store: new MongoStore({ url: 'mongodb://127.0.0.1:27017/dogigram' }),
-  secret: 'notasecret',
-  resave: false,
-  saveUninitialized: false,
-  cookie: {
-    maxAge: 1000 * 60 * 24 * 7 * 2 // two weeks 
-    }
-  }) 
-);
+app.get('/', (req, res) => {
+  res.render('index');
+})
+
+app.get('/feed', (req, res) => {
+res.render('feed/feed');
+});
+
+app.get('/newpost', (req, res) => {
+res.render('post/new');
+});
+
+app.get('/newuser', (req, res) => {
+res.render('user/create');
+});
+
+app.get('/login', (req, res) => {
+res.render('user/login');
+});
 
 // Start Listening devise
 app.listen( PORT, () => console.log( `listing at port ${PORT} \nhttp://localhost:${PORT}`) );
