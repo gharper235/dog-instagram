@@ -4,15 +4,32 @@
   <!-- partial for head -->
   <%- include('../partials/_head/_head') %>
 <body>
+  <main>
   <div id="center">
-  <h1>Doggie Instagram</h1>
-  <p>Global post feeds will display here</p>
+  <h1> &#128062   Doggie Instagram  &#128062 </h1>
 
 <button type="button" class="btn btn-lg btn-outline-success" onclick="window.location.href='/newpost'">Add New Post</button><br><br>
 
 
-<a href="/">Will be a logout</a>
+<button type="button" class="btn btn-sm btn-outline-danger" onclick="window.location.href='/'">Logout</button>
 </div>
+<% posts.forEach(post => { %>
+<div class="card"  id="center">
+  <div class="card-body">
+    <img src="<%= post.img %>" alt="">
+    <p><%= post.caption %></p>
+  </div>
+  <div class="card-footer">
+    <form action="/feed/deletepost?_method=DELETE" method="POST">
+      <input type="submit" class="btn btn-primary" name="_id" value="<%= post._id %>">
+    </form>
+  </div>
+</div>
+<% }) %>
+<div id="center">
+  <button type="button" class="btn btn-sm btn-outline-danger" onclick="window.location.href='/'">Logout</button>
+</div>
+</main>
 </body>
 </html>
 

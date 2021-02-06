@@ -55,6 +55,38 @@ const createUser = (req, res) => {
 //     res.redirect('/login');
 // }
 
+// presentational
+const loginForm = ( req, res ) => {
+    res.render('user/login')
+  };
+
+const login = ( req, res ) => {
+    if ( req.body.email === '' || 
+    req.body.password === '' ) return res.render('user/login');
+    
+    db.User.findOne( { email: req.body.email }, ( err, foundUser ) => {
+      if ( err ) return res.render('user/login')
+      if ( !foundUser ) return res.render('user/login')
+  
+      bcrypt.compare( req.body.password, foundUser.password, ( err, isMatch ) => {
+        if ( err ) return res.render('user/login')  
+        if ( !isMatch ) return res.render('user/login', {message: 'login incorrect, please try again'});
+  
+
+console.log(req.session); // the login session appears to work here
+
+        // TODO it breaks here.... 
+        req.session.currentUser = {
+          username: foundUser.username,
+          userImg: foundUser.avatarImg,
+          userId: foundUser._id
+        }
+  
+        res.redirect('/feed');
+      })
+    });
+  }
+
 // http://localhost:3300/user/update
 const updateUser = (req, res) => {
     db.User.updateOne({_id: req.body._id}, req.body)
@@ -77,6 +109,8 @@ const deleteUser = (req, res) => {
 
 module.exports = {
     createUser,
+    loginForm,
+    login,
     updateUser,
     deleteUser
   }
